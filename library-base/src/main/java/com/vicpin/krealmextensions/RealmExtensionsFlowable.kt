@@ -99,10 +99,7 @@ fun isRealmThread() = Thread.currentThread().name == REALM_THREAD_NAME
 
 internal fun getLooper(): Looper? {
     return if (Looper.myLooper() == null) {
-        val backgroundThread = HandlerThread(REALM_THREAD_NAME,
-                Process.THREAD_PRIORITY_BACKGROUND)
-        backgroundThread.start()
-        backgroundThread.looper
+        LOOPER_THREAD.looper
     } else {
         Looper.myLooper()
     }
