@@ -98,9 +98,5 @@ const val REALM_THREAD_NAME = "Scheduler-Realm-BackgroundThread"
 fun isRealmThread() = Thread.currentThread().name == REALM_THREAD_NAME
 
 internal fun getLooper(): Looper? {
-    return if (Looper.myLooper() == null) {
-        LOOPER_THREAD.looper
-    } else {
-        Looper.myLooper()
-    }
+    return LOOPER_THREAD.looper
 }
