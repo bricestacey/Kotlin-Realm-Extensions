@@ -83,7 +83,7 @@ private inline fun <D : RealmModel, T : Any> prepareObservableQuery(clazz: Class
                     realm?.close()
                     mySubscription?.dispose()
                     if (isRealmThread()) {
-                        looper?.thread?.interrupt()
+                        looper.thread?.interrupt()
                     }
                 }
                 .unsubscribeOn(AndroidSchedulers.from(looper))

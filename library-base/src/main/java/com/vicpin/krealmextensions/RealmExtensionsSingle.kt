@@ -61,7 +61,7 @@ private fun <T : RealmModel> T.singleQuery(fieldName: List<String>? = null, orde
             result.removeAllChangeListeners()
             realm.close()
             if (isRealmThread()) {
-                looper?.thread?.interrupt()
+                looper.thread?.interrupt()
             }
         })
     }).subscribeOn(AndroidSchedulers.from(looper))
